@@ -3,72 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr.G Studio | Indie Game Devs</title>
+    <title>Mr.G Studio | Game Development</title>
     <style>
-        /* Basic Reset & Dark Theme */
+        :root {
+            --accent: #00d4ff; /* Main studio color */
+            --bg: #0a0a0a;
+            --card-bg: #161616;
+        }
+
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f0f0f;
-            color: #ffffff;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: #eeeeee;
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 1rem 5%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
         }
 
-        .logo { font-weight: bold; font-size: 1.5rem; color: #00d4ff; }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--accent); letter-spacing: 1px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
 
         /* Hero Section */
         header {
-            height: 60vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800'); /* Replace with a cool game screenshot */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1500'); 
             background-size: cover;
+            background-position: center;
         }
 
-        h1 { font-size: 4rem; margin-bottom: 0.5rem; }
-        .tagline { font-size: 1.2rem; color: #bbb; }
+        header h1 { font-size: clamp(3rem, 8vw, 5rem); margin: 0; text-transform: uppercase; }
+        header p { font-size: 1.2rem; color: #aaa; max-width: 600px; }
 
-        /* Main Content */
-        .container { padding: 4rem 5%; }
+        .container { padding: 4rem 10%; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; border-left: 5px solid var(--accent); padding-left: 15px; }
 
-        h2 { border-bottom: 2px solid #00d4ff; display: inline-block; margin-bottom: 2rem; }
-
-        /* Games Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: #1a1a1a;
-            border-radius: 8px;
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
             overflow: hidden;
-            transition: transform 0.3s;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 4rem;
         }
 
-        .card:hover { transform: translateY(-10px); border: 1px solid #00d4ff; }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
 
-        .card-img { height: 200px; background: #333; }
+        /* Contact Form */
+        .contact-box {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-        .card-content { padding: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; color: var(--accent); }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
-        /* Footer */
-        footer { text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; }
+        button {
+            background: var(--accent);
+            color: black;
+            border: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #00b8e6; transform: scale(1.02); }
+
+        footer { text-align: center; padding: 4rem; color: #555; }
     </style>
 </head>
 <body>
@@ -76,41 +115,46 @@
     <nav>
         <div class="logo">MR.G STUDIO</div>
         <div>
-            <a href="#games" style="color:white; text-decoration:none; margin-left:20px;">Games</a>
-            <a href="#team" style="color:white; text-decoration:none; margin-left:20px;">The Crew</a>
+            <a href="#trailer">Trailer</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <header>
-        <h1>Mr.G Studio</h1>
-        <p class="tagline">Crafting digital worlds, one pixel at a time.</p>
+        <h1>MR.G STUDIO</h1>
+        <p>Independent Creators. Unforgettable Experiences.</p>
     </header>
 
-    <div class="container" id="games">
-        <h2>Our Games</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img"></div>
-                <div class="card-content">
-                    <h3>The Magic Tree - Alpha</h3>
-                    <p>Choose your team, and manage the world.</p>
-                </div>
-            </div>
+    <div class="container" id="trailer">
+        <h2>Latest Trailer</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
-    <div class="container" id="team">
-        <h2>The Crew</h2>
-        <p>We are a group of friends dedicated to making games that we actually want to play.</p>
-        <ul>
-            <li><strong>RenSiyuan:</strong> Lead Programmer & Visionary</li>
-            <li><strong>HuangWeichen:</strong> Art & Level Design</li>
-            <li><strong>WangZitao:</strong> Sound & Music</li>
-        </ul>
+    <div class="container" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-box">
+            <form action="https://formspree.io/f/your-id-here" method="POST">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" name="email" placeholder="email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit">Send Transmission</button>
+            </form>
+        </div>
     </div>
 
     <footer>
-        &copy; 2026 Mr.G Studio. Built with passion.
+        <p>&copy; 2026 Mr.G Studio. All rights reserved.</p>
     </footer>
 
 </body>
