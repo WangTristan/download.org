@@ -1,62 +1,124 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>下载站 - 断网好手</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-    }
-    .container {
-      width: 80%;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 10px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 10px 0;
-      padding: 10px;
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    a {
-      text-decoration: none;
-      color: #007BFF;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr.G Studio | Indie Game Devs</title>
+    <style>
+        /* Basic Reset & Dark Theme */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            background: rgba(0,0,0,0.8);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-weight: bold; font-size: 1.5rem; color: #00d4ff; }
+
+        /* Hero Section */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1500x800'); /* Replace with a cool game screenshot */
+            background-size: cover;
+        }
+
+        h1 { font-size: 4rem; margin-bottom: 0.5rem; }
+        .tagline { font-size: 1.2rem; color: #bbb; }
+
+        /* Main Content */
+        .container { padding: 4rem 5%; }
+
+        h2 { border-bottom: 2px solid #00d4ff; display: inline-block; margin-bottom: 2rem; }
+
+        /* Games Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); border: 1px solid #00d4ff; }
+
+        .card-img { height: 200px; background: #333; }
+
+        .card-content { padding: 1.5rem; }
+
+        /* Footer */
+        footer { text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>欢迎来到DDORG下载站</h1>
-  </header>
-  <div class="container">
-    <h2>文件列表</h2>
-    <ul>
-      <li><a href="crowbar.zip" download>撬棍工具.zip</a></li>
-    </ul>
-  </div>
+
+    <nav>
+        <div class="logo">MR.G STUDIO</div>
+        <div>
+            <a href="#games" style="color:white; text-decoration:none; margin-left:20px;">Games</a>
+            <a href="#team" style="color:white; text-decoration:none; margin-left:20px;">The Crew</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Mr.G Studio</h1>
+        <p class="tagline">Crafting digital worlds, one pixel at a time.</p>
+    </header>
+
+    <div class="container" id="games">
+        <h2>Our Games</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img"></div>
+                <div class="card-content">
+                    <h3>Project Alpha</h3>
+                    <p>A fast-paced platformer where time only moves when you move.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img"></div>
+                <div class="card-content">
+                    <h3>Neon Runner</h3>
+                    <p>Escape the digital collapse in this synthwave-fueled infinite runner.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="team">
+        <h2>The Crew</h2>
+        <p>We are a group of friends dedicated to making games that we actually want to play.</p>
+        <ul>
+            <li><strong>RenSiyuan:</strong> Lead Programmer & Visionary</li>
+            <li><strong>HuangWeichen:</strong> Art & Level Design</li>
+            <li><strong>WangZitao:</strong> Sound & Music</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2026 Mr.G Studio. Built with passion.
+    </footer>
+
 </body>
 </html>
